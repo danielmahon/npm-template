@@ -1,0 +1,21 @@
+{
+  "name": "npm-template",
+  "version": "0.0.1",
+  "description": "npm module project template helper script.",
+  "bin": { 
+    "npm-template": "./bin/npm-template"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fengmk2/npm-template.git"
+  },
+  "dependencies": {
+    "ndir": "*"
+  },
+  "keywords": [
+    "npm",
+    "template"
+  ],
+  "author": "fengmk2 <fengmk2@gmail.com>",
+  "license": "MIT"
+}
