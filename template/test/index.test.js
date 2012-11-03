@@ -10,7 +10,7 @@
  * Module dependencies.
  */
 
-var {{name}} = require('{{name}}');
+var {{name}} = require('../');
 var should = require('should');
 
 describe('{{name}}.test.js', function () {

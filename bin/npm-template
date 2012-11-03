@@ -12,6 +12,54 @@
  * Module dependencies.
  */
 
+var ndir = require('ndir');
+var path = require('path');
+var fs = require('fs');
+var exec = require('child_process').exec;
+
 var args = process.argv.slice(2);
 var name = args[0];
 
+if (!name) {
+  console.log('Usage: npm-template name');
+  process.exit(-1);
+}
+
+var cwd = process.cwd();
+var modulepath = path.join(cwd, name);
+var template = path.join(path.dirname(__dirname), 'template');
+
+var cp = 'cp -rf ' + template + ' ' + modulepath;
+exec(cp, function (err, stdout, stderr) {
+  if (err) {
+    throw err;
+  }
+  if (stdout) {
+    console.log(stdout);
+  }
+  if (stderr) {
+    console.error(stderr);
+  }
+
+  ndir.walk(modulepath, function onDir(dirpath, files) {
+    console.log(' * %s', dirpath);
+    if (path.basename(dirpath) === '.git') {
+      return;
+    }
+    for (var i = 0, l = files.length; i < l; i++) {
+      var info = files[i];
+      if (!info[1].isFile()) {
+        continue;
+      }
+      var filepath = info[0];
+      var content = fs.readFileSync(filepath, 'utf8');
+      content = content.replace(/\{\{name\}\}/g, name);
+      content = content.replace(/\{\{NAME\}\}/g, name.toUpperCase());
+      fs.writeFileSync(filepath, content);
+    }
+  }, function end() {
+    console.log('walk end.');
+  }, function error(err, errPath) {
+    console.error('%s error: %s', errPath, err);
+  });
+});
