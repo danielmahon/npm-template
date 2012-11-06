@@ -1,7 +1,7 @@
 {
   "name": "{{name}}",
   "version": "0.0.1",
-  "description": "",
+  "description": "{{name}}",
   "main": "index.js",
   "scripts": {
     "test": "make test"

@@ -5,7 +5,7 @@
 
 Description
 
-jscoverage: [100%](http://fengmk2.github.com/coverage/{{name}}.html)
+* jscoverage: [100%](http://fengmk2.github.com/coverage/{{name}}.html)
 
 ## Install
 
@@ -18,6 +18,9 @@ $ npm install {{name}}
 ```js
 var {{name}} = require('{{name}}');
 
+{{name}}.foo(function (err) {
+  
+});
 ```
 
 ## License 
