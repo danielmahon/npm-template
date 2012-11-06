@@ -43,7 +43,8 @@ exec(cp, function (err, stdout, stderr) {
 
   ndir.walk(modulepath, function onDir(dirpath, files) {
     console.log(' * %s', dirpath);
-    if (path.basename(dirpath) === '.git') {
+    var basedirname = path.basename(dirpath);
+    if (basedirname === '.git') {
       return;
     }
     for (var i = 0, l = files.length; i < l; i++) {
@@ -52,10 +53,14 @@ exec(cp, function (err, stdout, stderr) {
         continue;
       }
       var filepath = info[0];
+      var topath = filepath.replace('__name__', name);
       var content = fs.readFileSync(filepath, 'utf8');
       content = content.replace(/\{\{name\}\}/g, name);
       content = content.replace(/\{\{NAME\}\}/g, name.toUpperCase());
-      fs.writeFileSync(filepath, content);
+      fs.writeFileSync(topath, content);
+      if (topath !== filepath) {
+        fs.unlinkSync(filepath);
+      }
     }
   }, function end() {
     console.log('walk end.');

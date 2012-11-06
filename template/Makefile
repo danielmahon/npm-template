@@ -13,11 +13,11 @@ test: install
 		$(TESTS)
 
 test-cov: install lib-cov
-	@{{NAME}}_COV=1 $(MAKE) test
+	@{{NAME}}_COV=1 $(MAKE) test REPORTER=dot
 	@{{NAME}}_COV=1 $(MAKE) test REPORTER=html-cov > coverage.html
 
 lib-cov:
-	@rm -rf ./lib-cov
+	@rm -rf $@
 	@$(JSCOVERAGE) lib $@
 
 .PHONY: test-cov test lib-cov install
