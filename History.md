@@ -1,4 +1,11 @@
 
+0.1.0 / 2013-05-15 
+==================
+
+  * use blanket instead of jscover
+  * update rename
+  * also rename file name to project name
+
 0.0.2 / 2012-11-03 
 ==================
 
