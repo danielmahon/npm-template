@@ -1,6 +1,3 @@
 test/
 coverage.html
-lib-cov/
-Makefile
-.travis.yml
 logo.png

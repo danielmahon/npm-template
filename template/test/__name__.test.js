@@ -1,6 +1,6 @@
 /*!
  * {{name}} - test/{{name}}.test.js
- * Copyright(c) 2012 fengmk2 <fengmk2@gmail.com>
+ * Copyright(c) 2013 fengmk2 <fengmk2@gmail.com>
  * MIT Licensed
  */
 
