@@ -1,4 +1,4 @@
-{{name}} [![Build Status](https://secure.travis-ci.org/fengmk2/{{name}}.png)](http://travis-ci.org/fengmk2/{{name}}) [![Dependencies](http://david-dm.org/fengmk2/{{name}}.png)](http://david-dm.org/fengmk2/{{name}})
+{{name}} [![Build Status](https://secure.travis-ci.org/fengmk2/{{name}}.png)](http://travis-ci.org/fengmk2/{{name}}) [![Coverage Status](https://coveralls.io/repos/fengmk2/{{name}}/badge.png)](https://coveralls.io/r/fengmk2/{{name}})
 =======
 
 ![logo](https://raw.github.com/fengmk2/{{name}}/master/logo.png)
